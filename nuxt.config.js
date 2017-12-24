@@ -26,6 +26,7 @@ module.exports = {
   */
   build: {
     vendor: ['axios', 'vuetify'],
+    extractCSS: true,
     /*
     ** Run ESLint on save
     */

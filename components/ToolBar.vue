@@ -1,5 +1,4 @@
 <template>
-  <div>
     <v-toolbar dark color="blue">
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title class="white--text">
@@ -12,7 +11,6 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-  </div>
 </template>
 
 <script>
