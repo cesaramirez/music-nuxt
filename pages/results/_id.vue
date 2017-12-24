@@ -1,9 +1,18 @@
 <template>
   <div>
-    <v-container fluid>
-      <v-layout row justify-center>
-        <h2>Hello from results route {{ $route.params.id }}</h2>
-        {{ albumData }}
+    <v-container fluid grid-list-xl>
+      <v-layout justify-center>
+        <v-flex>
+          <template v-if="albumExists">
+            <h2>Results for {{ $route.params.id }}</h2>
+            <template v-for="album in albumData">
+              <card :album="album"></card>
+            </template>
+          </template>
+          <template v-else>
+            <h2 class="text-xs-center">Could Not Find Album</h2>
+          </template>
+        </v-flex>
       </v-layout>
     </v-container>
   </div>
@@ -11,6 +20,7 @@
 
 <script>
 import axios from 'axios'
+import Card from '~/components/Card.vue'
 export default {
   asyncData ({ params }) {
     return axios
@@ -19,7 +29,14 @@ export default {
         return {albumData: response.data.results}
       })
   },
-  middleware: 'search'
+  components: {
+    Card
+  },
+  computed: {
+    albumExists () {
+      return this.albumData.length > 0
+    }
+  }
 }
 </script>
 
