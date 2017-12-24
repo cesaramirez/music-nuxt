@@ -1,9 +1,18 @@
 <template>
   <div>
+    <ToolBar/>
     <nuxt/>
   </div>
 </template>
+<script>
+import ToolBar from '~/components/Toolbar.vue'
 
+export default {
+  components: {
+    ToolBar
+  }
+}
+</script>
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
